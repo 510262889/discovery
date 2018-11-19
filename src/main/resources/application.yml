@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: discovery
+
+server:
+  port: 8000
+
+eureka:
+  client:
+    # 禁止把自己注册到发现服务
+    register-with-eureka: false
+    # 禁止从注册中心拉取注册信息
+    fetch-registry: false
+    serviceUrl:
+      # 与Eureka Server交互的地址
+      defaultZone: http://localhost:${server.port}/eureka/

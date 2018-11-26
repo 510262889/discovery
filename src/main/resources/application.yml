@@ -1,7 +1,3 @@
-spring:
-  application:
-    name: discovery
-
 server:
   port: 8000
 
@@ -14,3 +10,8 @@ eureka:
     serviceUrl:
       # 与Eureka Server交互的地址
       defaultZone: http://localhost:${server.port}/eureka/
+  server:
+      # 关闭自我保护，以确保注册中心将不可用的实例删除
+      enable-self-preservation: false
+      # 间隔多长时间清理无用节点，默认60*1000毫秒,即60秒
+      eviction-interval-timer-in-ms: 30000
